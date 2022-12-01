@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
 
+# Enable support for Flake
+NIX_CONFIG="experimental-features = nix-command flakes"
+
 # Install Nix
-NIX_CONFIG="experimental-features = nix-command flakes" sh <(curl -L https://nixos.org/nix/install) --no-daemon
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
+
+# Load environment
+source /home/codespace/.nix-profile/etc/profile.d/nix.sh
+
+# Switch to Home
+nix shell nixpkgs#home-manager -c home-manager switch --flake github:shikanime/shikanime#devas@ishtar
