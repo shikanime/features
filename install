@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Install Nix
+NIX_CONFIG="experimental-features = nix-command flakes" sh <(curl -L https://nixos.org/nix/install) --no-daemon
