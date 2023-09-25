@@ -1,0 +1,12 @@
+name: Validate Devcontainer Feature
+on:
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: devcontainers/action@v1
+        with:
+          validate-only: "true"
+          base-path-to-features: src

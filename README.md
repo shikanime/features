@@ -1,2 +1,3 @@
-# dotfiles
-Codespaces Dotfiles
+# Features
+
+Portable development environment
