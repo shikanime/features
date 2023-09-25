@@ -1,0 +1,36 @@
+{
+  "name": "Catbox",
+  "id": "catbox",
+  "version": "1.0.0",
+  "description": "Shikanime's development environment",
+  "options": {
+    "flakeUri": {
+      "type": "string",
+      "default": "github:shikanime/shikanime",
+      "description": "Optional URI to a Nix Flake to install in profile."
+    },
+    "userUid": {
+      "type": "string",
+      "proposals": ["1001", "automatic"],
+      "default": "automatic",
+      "description": "Enter UID for non-root user"
+    },
+    "userGid": {
+      "type": "string",
+      "proposals": ["1001", "automatic"],
+      "default": "automatic",
+      "description": "Enter GID for non-root user"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/nix"
+  ],
+  "mounts": [
+    {
+      "source": "nix",
+      "target": "/nix",
+      "type": "volume"
+    }
+  ]
+}
