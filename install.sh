@@ -27,7 +27,7 @@ echo "Nix is set up."
 # Install Home
 if ! command -v home-manager >/dev/null; then
 	echo "Home Manager is not installed. Installing using nixpkgs..."
-	nix run nixpkgs#home-manager -- switch \
+	nix run github:NixOS/nixpkgs/release-23.05#home-manager -- switch \
 		--flake github:shikanime/shikanime \
 		-b backup-before-nix
 else
