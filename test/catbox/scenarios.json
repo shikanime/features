@@ -1,0 +1,11 @@
+{
+  "test": {
+    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "features": {
+      "catbox": {
+        "flakeUri": "github:shikanime/shikanime"
+      }
+    },
+    "remoteUser": "vscode"
+  }
+}
