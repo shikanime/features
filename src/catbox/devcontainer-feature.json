@@ -17,15 +17,10 @@
       "description": "Enter GID for non-root user"
     }
   },
-  "dependsOn": {
-    "ghcr.io/devcontainers/features/common-utils": {
-      "configureZshAsDefaultShell": true
-    },
-    "ghcr.io/devcontainers/features/nix:1": {
-      "flakeUri": "github:nix-community/home-manager/release-23.05",
-      "extraNixConfig": "experimental-features = nix-command flakes,accept-flake-config = true,trusted-users = root vscode"
-    }
-  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/nix"
+  ],
   "mounts": [
     {
       "source": "nix",
