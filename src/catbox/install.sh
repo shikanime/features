@@ -82,10 +82,4 @@ else
     fi
 fi
 
-# Create post create if needed
-if [ ! -e "/usr/local/share/catbox-post-create.sh" ]; then
-    cp -f catbox-post-create.sh /usr/local/share/
-    chmod +x /usr/local/share/catbox-post-create.sh
-fi
-
 echo "Done!"

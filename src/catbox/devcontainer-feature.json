@@ -27,6 +27,5 @@
       "target": "/nix",
       "type": "volume"
     }
-  ],
-  "postCreateCommand": "/usr/local/share/catbox-post-create.sh"
+  ]
 }

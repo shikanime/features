@@ -4,6 +4,12 @@
     "features": {
       "catbox": {
         "flakeUri": "github:shikanime/shikanime"
+      },
+      "ghcr.io/devcontainers/features/common-utils": {
+        "configureZshAsDefaultShell": true
+      },
+      "ghcr.io/devcontainers/features/nix:1": {
+        "extraNixConfig": "experimental-features = nix-command flakes,accept-flake-config = true,trusted-users = root vscode"
       }
     },
     "remoteUser": "vscode"
