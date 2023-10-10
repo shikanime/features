@@ -29,12 +29,14 @@ if ! command -v home-manager >/dev/null; then
 	echo "Home Manager is not installed. Installing using nixpkgs..."
 	nix run github:NixOS/nixpkgs/release-23.05#home-manager -- switch \
 		--flake git+ssh://git@github.com/infinity-blackbox/shikanime \
-		-b backup-before-nix
+		-b backup-before-nix \
+		--refresh
 else
 	echo "Home Manager is installed. Installing using Home Manager..."
 	home-manager switch \
 		--flake git+ssh://git@github.com/infinity-blackbox/shikanime \
-		-b backup-before-nix
+		-b backup-before-nix \
+		--refresh
 fi
 
 echo "Home installed."
