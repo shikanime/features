@@ -1,7 +1,7 @@
 {
   "name": "Catbox",
   "id": "catbox",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shikanime's development environment",
   "options": {
     "userUid": {

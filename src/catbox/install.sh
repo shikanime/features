@@ -82,4 +82,25 @@ else
     fi
 fi
 
+# Install Home in user context
+su ${USERNAME} -c "sh <<EOF
+# Container run without USER env variable set so we need to set it manually
+# in oder to make home-manager work properly
+export USER=\${USER:-\$(whoami)}
+
+# Install Home
+if ! command -v home-manager >/dev/null; then
+	echo "Home Manager is not installed. Installing using nixpkgs..."
+	nix run github:NixOS/nixpkgs/release-23.05#home-manager -- switch \
+		--flake git+ssh://git@github.com/infinity-blackhole/shikanime \
+		-b backup-before-nix
+else
+	echo "Home Manager is installed. Installing using Home Manager..."
+	home-manager switch \
+		--flake git+ssh://git@github.com/infinity-blackhole/shikanime \
+		-b backup-before-nix
+fi
+EOF
+"
+
 echo "Done!"
