@@ -20,6 +20,30 @@
       "source": "nix",
       "target": "/nix",
       "type": "volume"
+    },
+    {
+      "source": "pip-cache",
+      "target": "/home/vscode/.cache/pip",
+      "type": "volume"
+    },
+    {
+      "source": "npm-cache",
+      "target": "/home/vscode/.cache/npm",
+      "type": "volume"
+    },
+    {
+      "source": "mix-cache",
+      "target": "/home/vscode/.cache/mix",
+      "type": "volume"
+    },
+    {
+      "source": "huggingface-cache",
+      "target": "/home/vscode/.cache/huggingface",
+      "type": "volume"
     }
-  ]
+  ],
+  "containerEnv": {
+    "npm_config_cache": "/home/vscode/.cache/npm",
+    "MIX_HOME": "/home/vscode/.cache/mix"
+  }
 }
