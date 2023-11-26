@@ -37,6 +37,11 @@
       "type": "volume"
     },
     {
+      "source": "catbox-cache-nix",
+      "target": "/home/vscode/.cache/nix",
+      "type": "volume"
+    },
+    {
       "source": "catbox-cache-huggingface",
       "target": "/home/vscode/.cache/huggingface",
       "type": "volume"
