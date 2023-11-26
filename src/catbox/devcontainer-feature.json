@@ -17,7 +17,7 @@
   "postCreateCommand": "/usr/local/share/catbox-install-home.sh",
   "mounts": [
     {
-      "source": "nix",
+      "source": "catbox-nix",
       "target": "/nix",
       "type": "volume"
     },
