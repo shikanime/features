@@ -48,19 +48,15 @@ else
     fi
 fi
 
-# Install Home if specified
-chmod +x,o+r ${FEATURE_DIR} ${FEATURE_DIR}/post-install-steps.sh
-if [ "${MULTIUSER}" = "true" ]; then
-    /usr/local/share/nix-entrypoint.sh
-    su ${USERNAME} -c "
-        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-        ${FEATURE_DIR}/post-install-steps.sh
-    "
-else
-    su ${USERNAME} -c "
-        . \$HOME/.nix-profile/etc/profile.d/nix.sh
-        ${FEATURE_DIR}/post-install-steps.sh
-    "
+# Create hook to install Home if specified
+if [ ! -e "/usr/local/share/catbox-install-home.sh" ]; then
+    if [ "${MULTIUSER}" = "true" ]; then
+        echo "(*) Setting up entrypoint..."
+        cp -f catbox-install-home.sh /usr/local/share/
+    else
+        echo -e '#!/bin/bash\nexec "$@"' > /usr/local/share/catbox-install-home.sh
+    fi
+    chmod +x /usr/local/share/catbox-install-home.sh
 fi
 
 echo "Done!"

@@ -14,6 +14,3 @@ if [ ! -z "${FLAKEURI}" ] && [ "${FLAKEURI}" != "none" ]; then
 		-b backup-before-nix \
 		--refresh
 fi
-
-nix-collect-garbage --delete-old
-nix-store --optimise

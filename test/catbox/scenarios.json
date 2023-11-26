@@ -2,16 +2,7 @@
   "test": {
     "image": "mcr.microsoft.com/devcontainers/base:jammy",
     "features": {
-      "catbox": {
-        "flakeUri": "github:shikanime/shikanime"
-      },
-      "ghcr.io/devcontainers/features/common-utils": {
-        "configureZshAsDefaultShell": true
-      },
-      "ghcr.io/devcontainers/features/nix": {
-        "extraNixConfig": "experimental-features = nix-command flakes,accept-flake-config = true,trusted-users = root vscode"
-      }
-    },
-    "remoteUser": "vscode"
+      "catbox": {}
+    }
   }
 }
