@@ -7,10 +7,8 @@ set -e
 export USER="${USER:-$(whoami)}"
 
 # Install Nix flake in profile if specified
-if [ ! -z "${FLAKEURI}" ] && [ "${FLAKEURI}" != "none" ]; then
-    echo "Installing flake ${FLAKEURI} in profile..."
-	nix run home-manager -- switch \
-		--flake ${FLAKEURI} \
-		-b backup-before-nix \
-		--refresh
-fi
+echo "Installing Home..."
+nix run home-manager -- switch \
+	--flake github:shikanime/shikanime \
+	-b backup-before-nix \
+	--refresh
