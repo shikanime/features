@@ -1,26 +1,25 @@
 {
   "name": "Catbox",
   "id": "catbox",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Shikanime's development environment",
   "options": {
-    "userUid": {
-      "type": "string",
-      "proposals": ["1001", "automatic"],
-      "default": "automatic",
-      "description": "Enter UID for non-root user"
+    "multiUser": {
+      "type": "boolean",
+      "default": true,
+      "description": "Perform a multi-user install (instead of single user)"
     },
-    "userGid": {
+    "flakeUri": {
       "type": "string",
-      "proposals": ["1001", "automatic"],
-      "default": "automatic",
-      "description": "Enter GID for non-root user"
+      "default": "github:shikanime/shikanime",
+      "description": "Optional URI to a Nix Flake to install in profile."
     }
   },
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils",
     "ghcr.io/devcontainers/features/nix"
   ],
+  "postCreateCommand": "/usr/local/share/catbox-post-create-steps.sh",
   "mounts": [
     {
       "source": "nix",
