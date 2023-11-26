@@ -60,10 +60,10 @@ if [ ! -e "/usr/local/share/catbox-install-home.sh" ]; then
 fi
 
 # Create cache folders with correct privs in case a volume is mounted here
-cache_folders=(".cache/pip" ".cache/npm" ".cache/mix" ".cache/huggingface")
+cache_folders=(".cache" ".cache/pip" ".cache/npm" ".cache/mix" ".cache/nix" ".cache/huggingface")
 for folder in "${cache_folders[@]}"; do
     mkdir -p "${user_home}/${folder}"
-    chown -R ${USERNAME} "${user_home}/${folder}"
+    chown -R "${USERNAME}:${USERNAME}" "${user_home}/${folder}"
     chmod -R u+wrx "${user_home}/${folder}"
 done
 
