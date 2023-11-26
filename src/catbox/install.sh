@@ -16,8 +16,8 @@ if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
     USERNAME=""
     POSSIBLE_USERS=("vscode" "node" "codespace" "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
     for CURRENT_USER in "${POSSIBLE_USERS[@]}"; do
-        if id -u ${CURRENT_USER} >/dev/null 2>&1; then
-            USERNAME=${CURRENT_USER}
+        if id -u "${CURRENT_USER}" >/dev/null 2>&1; then
+            USERNAME="${CURRENT_USER}"
             break
         fi
     done
@@ -36,7 +36,7 @@ else
     user_home="/home/${USERNAME}"
     if [ ! -d "${user_home}" ]; then
         mkdir -p "${user_home}"
-        chown ${USERNAME}:${group_name} "${user_home}"
+        chown "${USERNAME}:${group_name}" "${user_home}"
     fi
     # Create per-user profile as it may not have been created by default in
     # container environment
@@ -58,5 +58,13 @@ if [ ! -e "/usr/local/share/catbox-install-home.sh" ]; then
     fi
     chmod +x /usr/local/share/catbox-install-home.sh
 fi
+
+# Create cache folders with correct privs in case a volume is mounted here
+cache_folders=(".cache/pip" ".cache/npm" ".cache/mix" ".cache/huggingface")
+for folder in "${cache_folders[@]}"; do
+    mkdir -p "${user_home}/${folder}"
+    chown -R ${USERNAME} "${user_home}/${folder}"
+    chmod -R u+wrx "${user_home}/${folder}"
+done
 
 echo "Done!"
