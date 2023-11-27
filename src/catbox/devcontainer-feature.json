@@ -1,13 +1,18 @@
 {
   "name": "Catbox",
   "id": "catbox",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Shikanime's development environment",
   "options": {
     "multiUser": {
       "type": "boolean",
       "default": true,
       "description": "Perform a multi-user install (instead of single user)"
+    },
+    "flakeUri": {
+      "type": "string",
+      "default": "github:shikanime/shikanime",
+      "description": "Optional URI to a Nix Flake to install in profile."
     }
   },
   "installsAfter": [
