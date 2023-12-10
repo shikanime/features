@@ -1,7 +1,7 @@
 {
   "name": "Catbox",
   "id": "catbox",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Shikanime's development environment",
   "options": {
     "multiUser": {
@@ -22,38 +22,39 @@
   "postCreateCommand": "/usr/local/share/catbox-install-home.sh",
   "mounts": [
     {
-      "source": "catbox-nix",
+      "source": "nix",
       "target": "/nix",
       "type": "volume"
     },
     {
-      "source": "catbox-cache-pip",
+      "source": "pip-cache",
       "target": "/home/vscode/.cache/pip",
       "type": "volume"
     },
     {
-      "source": "catbox-cache-npm",
-      "target": "/home/vscode/.cache/npm",
+      "source": "npm-cache",
+      "target": "/home/vscode/.npm",
       "type": "volume"
     },
     {
-      "source": "catbox-cache-mix",
-      "target": "/home/vscode/.cache/mix",
+      "source": "mix-cache",
+      "target": "/home/vscode/.mix",
       "type": "volume"
     },
     {
-      "source": "catbox-cache-nix",
+      "source": "nix-cache",
       "target": "/home/vscode/.cache/nix",
       "type": "volume"
     },
     {
-      "source": "catbox-cache-huggingface",
+      "source": "huggingface-cache",
       "target": "/home/vscode/.cache/huggingface",
       "type": "volume"
+    },
+    {
+      "source": "cargo-cache",
+      "target": "/home/vscode/.cargo",
+      "type": "volume"
     }
-  ],
-  "containerEnv": {
-    "npm_config_cache": "/home/vscode/.cache/npm",
-    "MIX_HOME": "/home/vscode/.cache/mix"
-  }
+  ]
 }
