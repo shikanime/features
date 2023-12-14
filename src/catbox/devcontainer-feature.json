@@ -32,8 +32,18 @@
       "type": "volume"
     },
     {
+      "source": "pdm-cache",
+      "target": "/home/vscode/.pdm",
+      "type": "volume"
+    },
+    {
       "source": "npm-cache",
       "target": "/home/vscode/.npm",
+      "type": "volume"
+    },
+    {
+      "source": "yarn-cache",
+      "target": "/home/vscode/.cache/yarn",
       "type": "volume"
     },
     {
