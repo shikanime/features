@@ -1,0 +1,22 @@
+{
+  "name": "Home Manager",
+  "id": "home-manager",
+  "version": "1.0.0",
+  "description": "Manage a user environment using Nix",
+  "options": {
+    "multiUser": {
+      "type": "boolean",
+      "default": true,
+      "description": "Perform a multi-user install (instead of single user)"
+    },
+    "flakeUri": {
+      "type": "string",
+      "description": "Optional URI to a Nix Flake to install in profile."
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/nix"
+  ],
+  "postCreateCommand": "/usr/local/share/catbox-install-home.sh"
+}
