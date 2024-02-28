@@ -1,0 +1,16 @@
+{
+  "name": "Alibaba Cloud CLI",
+  "id": "alibaba-cloud-cli",
+  "version": "1.0.0",
+  "description": "Alibaba Cloud CLI",
+  "options": {
+    "version": {
+      "type": "string",
+      "description": "Version of Alibaba Cloud CLI to install.",
+      "default": "latest"
+    }
+  },
+  "installsAfter": [
+    "ghacr.io/devcontainers/features/common-utils"
+  ]
+}
