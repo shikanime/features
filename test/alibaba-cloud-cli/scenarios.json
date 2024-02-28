@@ -2,8 +2,7 @@
   "test": {
     "image": "mcr.microsoft.com/devcontainers/base:jammy",
     "features": {
-      "home-manager": {},
-      "ghcr.io/devcontainers/features/nix": {}
+      "alibaba-cloud-cli": {}
     }
   }
 }
