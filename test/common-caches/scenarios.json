@@ -2,7 +2,7 @@
   "test": {
     "image": "mcr.microsoft.com/devcontainers/base:jammy",
     "features": {
-      "catbox": {}
+      "common-caches": {}
     }
   }
 }
