@@ -9,6 +9,5 @@
       "description": "Version of Alibaba Cloud CLI to install.",
       "default": "latest"
     }
-  },
-  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+  }
 }
