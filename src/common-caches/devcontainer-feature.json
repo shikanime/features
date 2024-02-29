@@ -16,23 +16,8 @@
       "type": "volume"
     },
     {
-      "source": "pdm-cache",
-      "target": "/home/vscode/.pdm",
-      "type": "volume"
-    },
-    {
-      "source": "npm-cache",
-      "target": "/home/vscode/.npm",
-      "type": "volume"
-    },
-    {
       "source": "yarn-cache",
       "target": "/home/vscode/.cache/yarn",
-      "type": "volume"
-    },
-    {
-      "source": "mix-cache",
-      "target": "/home/vscode/.mix",
       "type": "volume"
     },
     {
@@ -43,6 +28,21 @@
     {
       "source": "huggingface-cache",
       "target": "/home/vscode/.cache/huggingface",
+      "type": "volume"
+    },
+    {
+      "source": "npm-cache",
+      "target": "/home/vscode/.npm",
+      "type": "volume"
+    },
+    {
+      "source": "pdm-cache",
+      "target": "/home/vscode/.pdm",
+      "type": "volume"
+    },
+    {
+      "source": "mix-cache",
+      "target": "/home/vscode/.mix",
       "type": "volume"
     },
     {
