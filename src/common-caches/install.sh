@@ -34,7 +34,7 @@ else
 fi
 
 # Create cache folders with correct privs in case a volume is mounted here
-cache_folders=(".cache" ".cache/pip" ".cache/npm" ".cache/mix" ".cache/nix" ".cache/huggingface")
+cache_folders=(".cache" ".cache/pip" ".cache/nix" ".cache/huggingface" ".npm" ".pdm" ".mix" ".cargo")
 for folder in "${cache_folders[@]}"; do
 	mkdir -p "${user_home}/${folder}"
 	chown -R "${USERNAME}:${USERNAME}" "${user_home}/${folder}"
