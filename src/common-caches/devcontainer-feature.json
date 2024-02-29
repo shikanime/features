@@ -3,9 +3,7 @@
   "id": "common-caches",
   "version": "3.0.0",
   "description": "Setup common caches for various package managers.",
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ],
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"],
   "mounts": [
     {
       "source": "nix",
