@@ -1,0 +1,6 @@
+{
+  "name": "Tailscale",
+  "id": "tailscale",
+  "version": "1.0.0",
+  "description": "Tailscale is a zero-config and no-fuss VPN"
+}
