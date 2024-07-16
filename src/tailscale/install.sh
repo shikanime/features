@@ -7,7 +7,6 @@ if [ "$(id -u)" -ne 0 ]; then
 	exit 1
 fi
 
-
 # Run Tailscale installation script
 curl -fsSL https://tailscale.com/install.sh | sh
 
