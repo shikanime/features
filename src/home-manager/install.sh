@@ -28,12 +28,12 @@ elif [ "${USERNAME}" = "none" ] || ! id -u ${USERNAME} >/dev/null 2>&1; then
 	USERNAME=root
 fi
 
-# Fix permissions
+# Find user home directory
 if [ "${USERNAME}" = "root" ]; then
 	user_home="/root"
 else
-	# Find user home directory
 	user_home="/home/${USERNAME}"
+	# Fix permissions
 	if [ ! -d "${user_home}" ]; then
 		mkdir -p "${user_home}"
 		chown "${USERNAME}:${group_name}" "${user_home}"
