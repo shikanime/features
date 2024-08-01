@@ -1,7 +1,7 @@
 {
   "name": "Google Cloud SDK",
   "id": "google-cloud-sdk",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Google Cloud SDK",
   "customizations": {
     "vscode": {
@@ -11,6 +11,7 @@
     }
   },
   "containerEnv": {
+    "CLOUDSDK_HOME": "/usr/local/google-cloud-sdk",
     "PATH": "/usr/local/google-cloud-sdk/bin:${PATH}"
   },
   "installsAfter": [
