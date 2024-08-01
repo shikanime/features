@@ -2,8 +2,6 @@
 
 set -e
 
-USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
-
 if [ "$(id -u)" -ne 0 ]; then
 	echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
 	exit 1
@@ -31,13 +29,16 @@ if [ "${USERNAME}" = "root" ]; then
 	user_home="/root"
 else
 	user_home="/home/${USERNAME}"
+	# Fix permissions
+	if [ ! -d "${user_home}" ]; then
+		mkdir -p "${user_home}"
+		chown "${USERNAME}:${group_name}" "${user_home}"
+	fi
 fi
 
 # Run Google Cloud CLI installation script
-su ${USERNAME} -c "
 curl -fsSL https://sdk.cloud.google.com | bash -s -- \
 	--disable-prompts \
-	--install-dir="${user_home}/.local/share/google-cloud-sdk"
-"
+	--install-dir="${user_home}/.local/share" \
 
 echo "Done!"

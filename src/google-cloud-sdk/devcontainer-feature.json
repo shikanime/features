@@ -1,7 +1,19 @@
 {
   "name": "Google Cloud SDK",
   "id": "google-cloud-sdk",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Google Cloud SDK",
-  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "googlecloudtools.cloudcode"
+      ]
+    }
+  },
+  "containerEnv": {
+    "PATH": "/usr/local/google-cloud-sdk/bin:${PATH}"
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
 }
