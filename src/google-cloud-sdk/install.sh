@@ -10,6 +10,6 @@ fi
 # Run Google Cloud CLI installation script
 curl -fsSL https://sdk.cloud.google.com | bash -s -- \
 	--disable-prompts \
-	--install-dir="/usr/local"
+	--install-dir="/usr/local/share" \
 
 echo "Done!"
