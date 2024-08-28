@@ -2,7 +2,7 @@
 
 set -e
 
-export CLOUDSDK_HOME=${CLOUDSDK_HOME:-"/usr/local/google-cloud-sdk"}
+export CLOUDSDK_INSTALL_PATH="${CLOUDSDK_INSTALL_PATH:-"/usr/local"}"
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
@@ -31,7 +31,7 @@ fi
 # Run Google Cloud CLI installation script
 curl -fsSL https://sdk.cloud.google.com | bash -s -- \
 	--disable-prompts \
-	--install-dir="${CLOUDSDK_HOME%/*}"
+	--install-dir="${CLOUDSDK_INSTALL_PATH}"
 
 # Create gcloud group, dir, and set sticky bit
 if ! cat /etc/group | grep -e "^gcloud:" > /dev/null 2>&1; then
@@ -39,8 +39,8 @@ if ! cat /etc/group | grep -e "^gcloud:" > /dev/null 2>&1; then
 fi
 usermod -a -G gcloud ${USERNAME}
 umask 0002
-chown -R "${USERNAME}:gcloud" ${CLOUDSDK_HOME}
-chmod -R g+r+w "${CLOUDSDK_HOME}"
-find "${CLOUDSDK_HOME}" -type d -print0 | xargs -0 -n 1 chmod g+s
+chown -R "${USERNAME}:gcloud" "${CLOUDSDK_INSTALL_PATH}/google-cloud-sdk"
+chmod -R g+r+w "${CLOUDSDK_INSTALL_PATH}/google-cloud-sdk"
+find "${CLOUDSDK_INSTALL_PATH}/google-cloud-sdk" -type d -print0 | xargs -0 -n 1 chmod g+s
 
 echo "Done!"
