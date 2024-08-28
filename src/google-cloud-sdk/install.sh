@@ -2,7 +2,7 @@
 
 set -e
 
-export CLOUDSDK_INSTALL_DIR="${INSTALLPATH:-"/usr/local"}"
+export CLOUDSDK_INSTALL_DIR="${INSTALLPATH:-"/usr/local/google-cloud-sdk"}"
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
@@ -10,6 +10,13 @@ if [ "$(id -u)" -ne 0 ]; then
 	echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
 	exit 1
 fi
+
+# Ensure CLOUDSDK_INSTALL_DIR ends with 'google-cloud-sdk'
+if [[ ! "${CLOUDSDK_INSTALL_DIR}" =~ google-cloud-sdk$ ]]; then
+	echo -e 'CLOUDSDK_INSTALL_DIR must end with "google-cloud-sdk".'
+	exit 1
+fi
+CLOUDSDK_INSTALL_DIR=$(echo "${CLOUDSDK_INSTALL_DIR}" | sed 's/\/google-cloud-sdk$//')
 
 # Determine the appropriate non-root user
 if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
