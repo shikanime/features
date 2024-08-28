@@ -4,7 +4,7 @@ set -e
 
 VERSION="${VERSION:-"latest"}"
 
-export SPARK_HOME=${SPARK_HOME:-"/usr/local/spark"}
+export SPARK_HOME=${SPARK_HOME:-"/usr/local/spark/current"}
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
@@ -49,7 +49,7 @@ mkdir -p /usr/local/spark
 curl -fsSL \
     https://archive.apache.org/dist/spark/spark-${requested_version}/spark-${requested_version}-bin-hadoop3.tgz \
     | tar xz -C /usr/local/spark
-ln -s /usr/local/spark/spark-${requested_version}-bin-hadoop3 /usr/local/spark/current
+ln -s /usr/local/spark/spark-${requested_version}-bin-hadoop3 ${SPARK_HOME}
 
 # Create spark group, dir, and set sticky bit
 if ! cat /etc/group | grep -e "^spark:" > /dev/null 2>&1; then
