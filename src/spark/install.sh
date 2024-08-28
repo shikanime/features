@@ -19,6 +19,8 @@ find_version_list() {
 if [ "${VERSION}" == "latest" ]; then
     find_version_list version_list
     requested_version="$(echo "${version_list}" | head -n 1)"
+else
+    requested_version="${VERSION}"
 fi
 
 # Download Spark
