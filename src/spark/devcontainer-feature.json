@@ -1,0 +1,23 @@
+{
+  "name": "Spark",
+  "id": "spark",
+  "version": "0.1.0",
+  "description": "Spark",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "description": "Spark version to install"
+    }
+  },
+  "containerEnv": {
+    "SPARK_HOME": "/usr/local/spark/current",
+    "PYTHONPATH": "/usr/local/spark/python:/usr/local/spark/python/lib/py4j-0.10.9-src.zip:${PYTHONPATH}",
+    "PATH": "/usr/local/spark/current/bin:${PATH}"
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/java",
+    "ghcr.io/devcontainers/features/python"
+  ]
+}
