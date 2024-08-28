@@ -2,7 +2,7 @@
 
 set -e
 
-export CLOUDSDK_INSTALL_PATH="${CLOUDSDK_INSTALL_PATH:-"/usr/local"}"
+export CLOUDSDK_INSTALL_DIR="${INSTALLPATH:-"/usr/local"}"
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
@@ -28,10 +28,9 @@ elif [ "${USERNAME}" = "none" ] || ! id -u ${USERNAME} >/dev/null 2>&1; then
 	USERNAME=root
 fi
 
-# Run Google Cloud CLI installation script
+# Run Google Cloud CLI installation scriptOVERRIDE_DEFAULT_VERSION
 curl -fsSL https://sdk.cloud.google.com | bash -s -- \
-	--disable-prompts \
-	--install-dir="${CLOUDSDK_INSTALL_PATH}"
+	--disable-prompts
 
 # Create gcloud group, dir, and set sticky bit
 if ! cat /etc/group | grep -e "^gcloud:" > /dev/null 2>&1; then
@@ -39,8 +38,8 @@ if ! cat /etc/group | grep -e "^gcloud:" > /dev/null 2>&1; then
 fi
 usermod -a -G gcloud ${USERNAME}
 umask 0002
-chown -R "${USERNAME}:gcloud" "${CLOUDSDK_INSTALL_PATH}/google-cloud-sdk"
-chmod -R g+r+w "${CLOUDSDK_INSTALL_PATH}/google-cloud-sdk"
-find "${CLOUDSDK_INSTALL_PATH}/google-cloud-sdk" -type d -print0 | xargs -0 -n 1 chmod g+s
+chown -R "${USERNAME}:gcloud" "${CLOUDSDK_INSTALL_DIR}/google-cloud-sdk"
+chmod -R g+r+w "${CLOUDSDK_INSTALL_DIR}/google-cloud-sdk"
+find "${CLOUDSDK_INSTALL_DIR}/google-cloud-sdk" -type d -print0 | xargs -0 -n 1 chmod g+s
 
 echo "Done!"
