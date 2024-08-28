@@ -31,4 +31,5 @@ mkdir -p ${SPARK_INSTALL_PATH}
 curl -fsSL \
     https://archive.apache.org/dist/spark/spark-${requested_version}/spark-${requested_version}-bin-hadoop3.tgz \
     | tar xz -C ${SPARK_INSTALL_PATH}
-ln -s ${SPARK_INSTALL_PATH}/spark-${requested_version}-bin-hadoop3 ${SPARK_HOME}
+
+ln -s -r "${SPARK_INSTALL_PATH}/spark-${requested_version}-bin-hadoop3" "${SPARK_HOME}"
