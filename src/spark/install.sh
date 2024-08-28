@@ -60,3 +60,21 @@ umask 0002
 chown -R "${USERNAME}:spark" ${SPARK_HOME}
 chmod -R g+r+w "${SPARK_HOME}"
 find "${SPARK_HOME}" -type d -print0 | xargs -0 -n 1 chmod g+s
+
+# Install Python path
+python_env="$(
+cat <<-EOF
+    #!/bin/bash
+
+    set -e
+
+    # Resolve Spark P4J
+    py4j_zip=$(find ${SPARK_HOME}/python/lib -name "py4j-*-src.zip" -print -quit)
+    export PYTHONPATH="\${SPARK_HOME}/python:\${py4j_zip}"
+EOF
+)"
+if [ ! -e "/usr/local/share/spark-python-env.sh" ]; then
+    echo "(*) Setting up entrypoint..."
+    echo "${python_env}" >/usr/local/share/spark-python-env.sh
+    chmod +x /usr/local/share/spark-python-env.sh
+fi

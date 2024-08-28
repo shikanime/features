@@ -12,7 +12,6 @@
   },
   "containerEnv": {
     "SPARK_HOME": "/usr/local/spark/current",
-    "PYTHONPATH": "/usr/local/spark/python:/usr/local/spark/python/lib/py4j-0.10.9-src.zip:${PYTHONPATH}",
     "PATH": "/usr/local/spark/current/bin:${PATH}"
   },
   "installsAfter": [
