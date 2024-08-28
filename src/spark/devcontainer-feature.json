@@ -1,13 +1,18 @@
 {
   "name": "Spark",
   "id": "spark",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spark",
   "options": {
     "version": {
       "type": "string",
       "default": "latest",
       "description": "Spark version to install"
+    },
+    "installPath": {
+      "type": "string",
+      "default": "/usr/local/spark",
+      "description": "Path to install Spark"
     }
   },
   "containerEnv": {
