@@ -41,6 +41,12 @@ fi
 curl -fsSL https://sdk.cloud.google.com | bash -s -- \
 	--disable-prompts
 
+# Install list of components if specified.
+if [ ! -z "${COMPONENTS}" ] && [ "${COMPONENTS}" != "none" ]; then
+  echo "Installing components \"${COMPONENTS}\"..."
+  gcloud components install "${COMPONENTS}"
+fi
+
 # Create gcloud group, dir, and set sticky bit
 if ! cat /etc/group | grep -e "^gcloud:" > /dev/null 2>&1; then
 	groupadd -r gcloud
