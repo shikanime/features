@@ -49,7 +49,7 @@ else
 fi
 
 # Create hook to install Home if specified
-if  [ ! -z "${FLAKEURI}" ] && [ "${FLAKEURI}" != "none" ]; then
+if [ ! -z "${FLAKEURI}" ] && [ "${FLAKEURI}" != "none" ]; then
 	install_script="$(
 		cat <<-EOF
 			#!/bin/bash

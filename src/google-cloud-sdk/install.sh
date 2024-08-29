@@ -40,7 +40,7 @@ curl -fsSL https://sdk.cloud.google.com | bash -s -- \
 	--disable-prompts
 
 # Create gcloud group, dir, and set sticky bit
-if ! cat /etc/group | grep -e "^gcloud:" > /dev/null 2>&1; then
+if ! cat /etc/group | grep -e "^gcloud:" >/dev/null 2>&1; then
 	groupadd -r gcloud
 fi
 usermod -a -G gcloud ${USERNAME}
