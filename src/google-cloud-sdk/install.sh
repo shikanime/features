@@ -2,6 +2,8 @@
 
 set -e
 
+COMPONENTS="${COMPONENTS:-"none"}"
+
 export CLOUDSDK_INSTALL_DIR="${INSTALLPATH:-"/usr/local/google-cloud-sdk"}"
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
@@ -38,6 +40,11 @@ fi
 # Run Google Cloud CLI installation scriptOVERRIDE_DEFAULT_VERSION
 curl -fsSL https://sdk.cloud.google.com | bash -s -- \
 	--disable-prompts
+
+# Install list of components if specified.
+if [ ! -z "${COMPONENTS}" ] && [ "${COMPONENTS}" != "none" ]; then
+	su ${USERNAME} -c "gcloud components install \"${COMPONENTS}\""
+fi
 
 # Create gcloud group, dir, and set sticky bit
 if ! cat /etc/group | grep -e "^gcloud:" > /dev/null 2>&1; then
