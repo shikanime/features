@@ -2,6 +2,8 @@
 
 set -e
 
+COMPONENTS="${COMPONENTS:-"none"}"
+
 export CLOUDSDK_INSTALL_DIR="${INSTALLPATH:-"/usr/local/google-cloud-sdk"}"
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
@@ -48,5 +50,11 @@ umask 0002
 chown -R "${USERNAME}:gcloud" "${CLOUDSDK_INSTALL_DIR}/google-cloud-sdk"
 chmod -R g+r+w "${CLOUDSDK_INSTALL_DIR}/google-cloud-sdk"
 find "${CLOUDSDK_INSTALL_DIR}/google-cloud-sdk" -type d -print0 | xargs -0 -n 1 chmod g+s
+
+# Install list of components if specified.
+if [ ! -z "${COMPONENTS}" ] && [ "${COMPONENTS}" != "none" ]; then
+  echo "Installing components \"${COMPONENTS}\"..."
+  gcloud components install "${COMPONENTS}"
+fi
 
 echo "Done!"
