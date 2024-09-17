@@ -65,10 +65,10 @@ if [ ! -z "${FLAKEURI}" ] && [ "${FLAKEURI}" != "none" ]; then
 			nix run home-manager -- switch --flake "${FLAKEURI}" -b backup-before-nix --refresh
 		EOF
 	)"
-	if [ ! -e "/usr/local/share/catbox-install-home.sh" ]; then
+	if [ ! -e "/usr/local/share/home-manager-switch.sh" ]; then
 		echo "(*) Setting up entrypoint..."
-		echo "${install_script}" >/usr/local/share/catbox-install-home.sh
-		chmod +x /usr/local/share/catbox-install-home.sh
+		echo "${install_script}" >/usr/local/share/home-manager-switch.sh
+		chmod +x /usr/local/share/home-manager-switch.sh
 	fi
 fi
 

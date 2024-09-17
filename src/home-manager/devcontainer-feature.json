@@ -19,5 +19,5 @@
     "ghcr.io/devcontainers/features/common-utils",
     "ghcr.io/devcontainers/features/nix"
   ],
-  "postCreateCommand": "/usr/local/share/catbox-install-home.sh"
+  "postCreateCommand": "/usr/local/share/home-manager-switch.sh"
 }
