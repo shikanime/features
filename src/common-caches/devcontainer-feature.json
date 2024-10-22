@@ -32,12 +32,12 @@
     },
     {
       "source": "npm-cache",
-      "target": "/home/vscode/.npm",
+      "target": "/home/vscode/.cache/npm",
       "type": "volume"
     },
     {
       "source": "pdm-cache",
-      "target": "/home/vscode/.pdm",
+      "target": "/home/vscode/.cache/pdm",
       "type": "volume"
     },
     {
