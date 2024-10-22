@@ -41,13 +41,13 @@
       "type": "volume"
     },
     {
-      "source": "mix-cache",
-      "target": "/home/vscode/.mix",
+      "source": "mix-config",
+      "target": "/home/vscode/.config/mix",
       "type": "volume"
     },
     {
-      "source": "cargo-cache",
-      "target": "/home/vscode/.cache/cargo",
+      "source": "cargo-config",
+      "target": "/home/vscode/.config/cargo",
       "type": "volume"
     }
   ]
