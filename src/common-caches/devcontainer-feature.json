@@ -47,7 +47,7 @@
     },
     {
       "source": "cargo-cache",
-      "target": "/home/vscode/.cargo",
+      "target": "/home/vscode/.cache/cargo",
       "type": "volume"
     }
   ]
