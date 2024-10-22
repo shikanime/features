@@ -39,16 +39,6 @@
       "source": "pdm-cache",
       "target": "/home/vscode/.cache/pdm",
       "type": "volume"
-    },
-    {
-      "source": "mix-config",
-      "target": "/home/vscode/.config/mix",
-      "type": "volume"
-    },
-    {
-      "source": "cargo-config",
-      "target": "/home/vscode/.config/cargo",
-      "type": "volume"
     }
   ]
 }
