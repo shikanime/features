@@ -1,7 +1,7 @@
 {
   "name": "Common Caches",
   "id": "common-caches",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Setup common caches for various package managers.",
   "installsAfter": ["ghcr.io/devcontainers/features/common-utils"],
   "mounts": [
@@ -38,6 +38,11 @@
     {
       "source": "pdm-cache",
       "target": "/home/vscode/.cache/pdm",
+      "type": "volume"
+    },
+    {
+      "source": "mise-cache",
+      "target": "/home/vscode/.cache/mise",
       "type": "volume"
     }
   ]
