@@ -5,9 +5,7 @@
   "description": "Tailscale is a zero-config and no-fuss VPN",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "Tailscale.vscode-tailscale"
-      ]
+      "extensions": ["Tailscale.vscode-tailscale"]
     }
   }
 }

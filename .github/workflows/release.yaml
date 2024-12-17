@@ -1,4 +1,4 @@
-name: Release Devcontainer Feature
+name: Release
 on:
   push:
     branches:
@@ -8,8 +8,8 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: devcontainers/action@v1
+      - uses: actions/checkout@v4
+      - uses: devcontainers/action@v2
         with:
           publish-features: "true"
           base-path-to-features: src
