@@ -1,33 +1,42 @@
 {
   "name": "Common Caches",
   "id": "common-caches",
-  "version": "3.1.3",
+  "version": "3.2.0",
   "description": "Setup common caches for various package managers.",
   "installsAfter": ["ghcr.io/devcontainers/features/common-utils"],
+  "containerEnv": {
+    "NPM_CONFIG_CACHE": "/home/vscode/.cache/npm",
+    "MIX_XDG": "1"
+  },
   "mounts": [
+    {
+      "source": "deno-cache",
+      "target": "/home/vscode/.cache/deno",
+      "type": "volume"
+    },
+    {
+      "source": "huggingface-cache",
+      "target": "/home/vscode/.cache/huggingface",
+      "type": "volume"
+    },
+    {
+      "source": "mise-cache",
+      "target": "/home/vscode/.cache/mise",
+      "type": "volume"
+    },
+    {
+      "source": "mix-cache",
+      "target": "/home/vscode/.cache/mix",
+      "type": "volume"
+    },
     {
       "source": "nix",
       "target": "/nix",
       "type": "volume"
     },
     {
-      "source": "pip-cache",
-      "target": "/home/vscode/.cache/pip",
-      "type": "volume"
-    },
-    {
-      "source": "yarn-cache",
-      "target": "/home/vscode/.cache/yarn",
-      "type": "volume"
-    },
-    {
       "source": "nix-cache",
       "target": "/home/vscode/.cache/nix",
-      "type": "volume"
-    },
-    {
-      "source": "huggingface-cache",
-      "target": "/home/vscode/.cache/huggingface",
       "type": "volume"
     },
     {
@@ -41,8 +50,23 @@
       "type": "volume"
     },
     {
-      "source": "mise-cache",
-      "target": "/home/vscode/.cache/mise",
+      "source": "pip-cache",
+      "target": "/home/vscode/.cache/pip",
+      "type": "volume"
+    },
+    {
+      "source": "poetry-cache",
+      "target": "/home/vscode/.cache/pypoetry",
+      "type": "volume"
+    },
+    {
+      "source": "uv-cache",
+      "target": "/home/vscode/.cache/uv",
+      "type": "volume"
+    },
+    {
+      "source": "yarn-cache",
+      "target": "/home/vscode/.cache/yarn",
       "type": "volume"
     }
   ]
