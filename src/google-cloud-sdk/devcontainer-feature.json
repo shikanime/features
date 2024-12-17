@@ -12,9 +12,7 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": [
-        "googlecloudtools.cloudcode"
-      ]
+      "extensions": ["googlecloudtools.cloudcode"]
     }
   },
   "containerEnv": {

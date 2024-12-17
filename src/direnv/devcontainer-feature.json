@@ -3,7 +3,5 @@
   "id": "direnv",
   "version": "1.0.0",
   "description": "Direnv is an environment switcher for the shell. It knows how to hook into bash, zsh, tcsh, fish shell and elvish to load or unload environment variables depending on the current directory.",
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ]
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
 }
