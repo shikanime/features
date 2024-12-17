@@ -1,7 +1,7 @@
 {
   "name": "Common Caches",
   "id": "common-caches",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Setup common caches for various package managers.",
   "installsAfter": ["ghcr.io/devcontainers/features/common-utils"],
   "containerEnv": {
@@ -50,16 +50,22 @@
       "type": "volume"
     },
     {
+      "source": "npm-cache",
+      "target": "/home/vscode/.cache/npm",
       "source": "pip-cache",
       "target": "/home/vscode/.cache/pip",
       "type": "volume"
     },
     {
+      "source": "pdm-cache",
+      "target": "/home/vscode/.cache/pdm",
       "source": "poetry-cache",
       "target": "/home/vscode/.cache/pypoetry",
       "type": "volume"
     },
     {
+      "source": "mise-cache",
+      "target": "/home/vscode/.cache/mise",
       "source": "uv-cache",
       "target": "/home/vscode/.cache/uv",
       "type": "volume"
