@@ -1,28 +1,17 @@
 {
   "name": "Common Caches",
   "id": "common-caches",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Setup common caches for various package managers.",
   "installsAfter": ["ghcr.io/devcontainers/features/common-utils"],
+  "containerEnv": {
+    "NPM_CONFIG_CACHE": "/home/vscode/.cache/npm",
+    "MIX_XDG": "1"
+  },
   "mounts": [
     {
-      "source": "nix",
-      "target": "/nix",
-      "type": "volume"
-    },
-    {
-      "source": "pip-cache",
-      "target": "/home/vscode/.cache/pip",
-      "type": "volume"
-    },
-    {
-      "source": "yarn-cache",
-      "target": "/home/vscode/.cache/yarn",
-      "type": "volume"
-    },
-    {
-      "source": "nix-cache",
-      "target": "/home/vscode/.cache/nix",
+      "source": "deno-cache",
+      "target": "/home/vscode/.cache/deno",
       "type": "volume"
     },
     {
@@ -31,23 +20,53 @@
       "type": "volume"
     },
     {
-      "source": "npm-cache",
-      "target": "/home/vscode/.npm",
-      "type": "volume"
-    },
-    {
-      "source": "pdm-cache",
-      "target": "/home/vscode/.pdm",
+      "source": "mise-cache",
+      "target": "/home/vscode/.cache/mise",
       "type": "volume"
     },
     {
       "source": "mix-cache",
-      "target": "/home/vscode/.mix",
+      "target": "/home/vscode/.cache/mix",
       "type": "volume"
     },
     {
-      "source": "cargo-cache",
-      "target": "/home/vscode/.cargo",
+      "source": "nix",
+      "target": "/nix",
+      "type": "volume"
+    },
+    {
+      "source": "nix-cache",
+      "target": "/home/vscode/.cache/nix",
+      "type": "volume"
+    },
+    {
+      "source": "npm-cache",
+      "target": "/home/vscode/.cache/npm",
+      "type": "volume"
+    },
+    {
+      "source": "pdm-cache",
+      "target": "/home/vscode/.cache/pdm",
+      "type": "volume"
+    },
+    {
+      "source": "pip-cache",
+      "target": "/home/vscode/.cache/pip",
+      "type": "volume"
+    },
+    {
+      "source": "poetry-cache",
+      "target": "/home/vscode/.cache/pypoetry",
+      "type": "volume"
+    },
+    {
+      "source": "uv-cache",
+      "target": "/home/vscode/.cache/uv",
+      "type": "volume"
+    },
+    {
+      "source": "yarn-cache",
+      "target": "/home/vscode/.cache/yarn",
       "type": "volume"
     }
   ]
