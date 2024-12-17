@@ -50,15 +50,11 @@
       "type": "volume"
     },
     {
-      "source": "npm-cache",
-      "target": "/home/vscode/.cache/npm",
       "source": "pip-cache",
       "target": "/home/vscode/.cache/pip",
       "type": "volume"
     },
     {
-      "source": "pdm-cache",
-      "target": "/home/vscode/.cache/pdm",
       "source": "poetry-cache",
       "target": "/home/vscode/.cache/pypoetry",
       "type": "volume"
@@ -66,6 +62,9 @@
     {
       "source": "mise-cache",
       "target": "/home/vscode/.cache/mise",
+      "type": "volume"
+    },
+    {
       "source": "uv-cache",
       "target": "/home/vscode/.cache/uv",
       "type": "volume"
