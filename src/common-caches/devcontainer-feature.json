@@ -15,6 +15,11 @@
       "type": "volume"
     },
     {
+      "source": "go-cache",
+      "target": "/home/vscode/.cache/go",
+      "type": "volume"
+    },
+    {
       "source": "huggingface-cache",
       "target": "/home/vscode/.cache/huggingface",
       "type": "volume"
