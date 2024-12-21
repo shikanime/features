@@ -35,6 +35,7 @@ fi
 
 # Create cache folders with correct privs in case a volume is mounted here
 cache_folders=(
+  ".cache"
   ".cache/deno"
   ".cache/go"
   ".cache/huggingface"
